@@ -1,6 +1,8 @@
 package com.book.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Locale.Category;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,71 +20,76 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.book.entity.Books;
 import com.book.service.IBookService;
+
 @CrossOrigin
 @RestController
 public class BookController {
 	@Autowired
 	IBookService bookService;
-	
+
 	@PostMapping("/book")
-	public	Books createBook(@RequestBody Books book) {
-		Books  newbook= bookService.saveBook(book);
+	public Books createBook(@RequestBody Books book) {
+		Books newbook = bookService.saveBook(book);
 		return newbook;
 	}
-	
+
 	@GetMapping("/allBooks")
-	public List<Books> getallBooks(){
+	public List<Books> getAllBooks() {
 		return bookService.getallBooks();
-		
+
 	}
-	
+
 	@GetMapping("/getbook/{id}")
-	public Optional<Books> getBook(@PathVariable Integer id){
+	public Optional<Books> getBook(@PathVariable Integer id) {
 		Optional<Books> book = bookService.getBook(id);
 		return book;
 	}
-	
+
 	@GetMapping("/getbookbyemail/{email}")
-	public List<Books> getBookbyaid(@PathVariable String email){
+	public List<Books> getBookbyaid(@PathVariable String email) {
 		List<Books> book = bookService.getBookbyemail(email);
 		return book;
 	}
-	
-	
-	@GetMapping("/searchbooks")
-	public List<Books> searchbooks(@RequestParam(name = "category",required = false)  String category,
-			@RequestParam (name = "authorName",required = false) String authorName,
-			@RequestParam  (name = "price",required = false) Long price){
-				return bookService.searchbooks(category,authorName,price);
-	
+
+//	@GetMapping("/searchbooks")
+//	public List<Books> searchbooks(@RequestParam(name = "category", required = false) String category,
+//			@RequestParam(name = "authorName", required = false) String authorName,
+//			@RequestParam(name = "price", required = false) Long price) {
+//		return bookService.searchbooks(category, authorName, price);
+//
+//	}
+
+	@GetMapping("/searchbooks/{category}/{authorname}/{price}/{publisher}")
+
+	public List<Books> searchBooks2(@PathVariable String category, @PathVariable String authorname,
+			@PathVariable BigDecimal price, @PathVariable String publisher) {
+
+		return bookService.searchbooks(category, authorname, price, publisher);
+
 	}
-	
-	
+
 	@DeleteMapping("/book/{id}")
-	public ResponseEntity<Books> deleteBook(@PathVariable Integer id){
+	public ResponseEntity<Books> deleteBook(@PathVariable Integer id) {
 		System.out.println(id);
-		ResponseEntity<Books> responseEntity= new ResponseEntity<>(HttpStatus.OK);
+		ResponseEntity<Books> responseEntity = new ResponseEntity<>(HttpStatus.OK);
 		try {
 			bookService.deleteBook(id);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			responseEntity= new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return  responseEntity;
+		return responseEntity;
 	}
 
 	@DeleteMapping("/deleteall")
-	public String deleteBooks(){
+	public String deleteBooks() {
 		bookService.deleteallBooks();
 		return "Deleted all employees";
 	}
-	
+
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Books> updateBook(@PathVariable("id") Integer id, @RequestBody Books book){
+	public ResponseEntity<Books> updateBook(@PathVariable("id") Integer id, @RequestBody Books book) {
 		return new ResponseEntity<Books>(bookService.updateBook(book, id), HttpStatus.OK);
 	}
-	
-	
 
 }

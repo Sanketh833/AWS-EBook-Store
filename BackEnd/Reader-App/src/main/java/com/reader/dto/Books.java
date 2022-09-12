@@ -1,7 +1,5 @@
 package com.reader.dto;
 
-
-
 public class Books {
 			private Integer id;
 			private String title;
@@ -12,7 +10,6 @@ public class Books {
 			private Boolean active;
 			private String content;
 			private String authorName;
-			private Integer aId;
 			public Integer getId() {
 				return id;
 			}
@@ -67,14 +64,9 @@ public class Books {
 			public void setAuthorName(String authorName) {
 				this.authorName = authorName;
 			}
-			public Integer getaId() {
-				return aId;
-			}
-			public void setaId(Integer aId) {
-				this.aId = aId;
-			}
+			
 			public Books(Integer id, String title, String category, String image, Long price, String publisher,
-					Boolean active, String content, String authorName, Integer aId) {
+					Boolean active, String content, String authorName) {
 				super();
 				this.id = id;
 				this.title = title;
@@ -85,7 +77,6 @@ public class Books {
 				this.active = active;
 				this.content = content;
 				this.authorName = authorName;
-				this.aId = aId;
 			}
 			public Books() {
 				super();

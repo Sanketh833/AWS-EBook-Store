@@ -1,33 +1,58 @@
-//package com.author.testservice;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.mockito.Mockito.when;
-//
-//import org.junit.jupiter.api.Test;
-//import org.junit.jupiter.api.extension.ExtendWith;
-//import org.mockito.InjectMocks;
-//import org.mockito.Mock;
-//import org.mockito.junit.jupiter.MockitoExtension;
-//
-//import com.author.entity.Author;
-//import com.author.service.IAuthorRepository;
-//import com.author.service.IAuthorService;
-//
-//@ExtendWith(MockitoExtension.class)
-//public class AuthorServiceTest {
-//
-//	@Mock
-//	IAuthorRepository iauthorRepository;
-//	
-//	
-//	@Test
-//	void testSaveauthor() {
-//		
-//		Author author = new Author();
-//		author.setEmail("sanketh@gmail.com");
-//		when(iauthorRepository.save(author)).thenReturn(author); 
-//		Author testauthor = iauthorService.saveAuthor(author);     
-//		assertEquals(author, testauthor);
-//	}
-//	
-//}
+package com.author.testservice;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.author.dto.AuthorDTO;
+import com.author.entity.Author;
+import com.author.service.AutorServiceImpl;
+import com.author.service.IAuthorRepository;
+import com.author.service.IAuthorService;
+
+@ExtendWith(MockitoExtension.class)
+public class AuthorServiceTest  {
+
+	@Mock
+	IAuthorRepository iauthorRepository;
+	
+	@InjectMocks
+	AutorServiceImpl authorserviceimpl;
+	
+	@Test
+	void testSaveauthor() {
+		
+		Author author = new Author();
+		author.setEmail("sanketh@gmail.com");
+		when(iauthorRepository.save(author)).thenReturn(author);   
+		assertEquals(author, authorserviceimpl.saveAuthor(author));
+	}
+	
+	
+	@Test
+	void testlogin() {
+		
+		AuthorDTO authorDTO = new AuthorDTO();
+		authorDTO.setEmail("test@gmail.com");
+		authorDTO.setPassword("123jak");
+		
+		when(iauthorRepository.findById(authorDTO.getEmail()));
+	}
+	
+	@Test
+	void testgetBook() {
+		Author author = new Author();  
+		String email = "test@gmail.com";
+		when(iauthorRepository.findById(email)).thenReturn(Optional.of(author));
+		assertEquals(author, authorserviceimpl.getbook(email));
+		
+		
+	}
+}

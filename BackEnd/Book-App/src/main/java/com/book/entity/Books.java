@@ -1,25 +1,41 @@
 package com.book.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.reader.enumerated.Category;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+@Data
 @Entity
+@Getter
+@Setter
 public class Books {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 		private Integer id;
 		private String title;
-		private String category;
+		
+//		@Enumerated(EnumType.STRING)
+		private String category; //enum
 		private String image;
-		private Long price;
+		private BigDecimal price; //bigdecimal
 		private String publisher;
 		private Boolean active;
 		private String content;
 		private String authorName;
 		private String email;
+		
+		
 		public Integer getId() {
 			return id;
 		}
@@ -32,6 +48,7 @@ public class Books {
 		public void setTitle(String title) {
 			this.title = title;
 		}
+		
 		public String getCategory() {
 			return category;
 		}
@@ -44,10 +61,12 @@ public class Books {
 		public void setImage(String image) {
 			this.image = image;
 		}
-		public Long getPrice() {
+		
+		
+		public BigDecimal getPrice() {
 			return price;
 		}
-		public void setPrice(Long price) {
+		public void setPrice(BigDecimal price) {
 			this.price = price;
 		}
 		public String getPublisher() {
@@ -74,13 +93,15 @@ public class Books {
 		public void setAuthorName(String authorName) {
 			this.authorName = authorName;
 		}
-		public String getaId() {
+		public String getEmail() {
 			return email;
 		}
-		public void setemail(String email) {
+		public void setEmail(String email) {
 			this.email = email;
 		}
-		public Books(Integer id, String title, String category, String image, Long price, String publisher,
+		
+		
+		public Books(Integer id, String title, String category, String image, BigDecimal price, String publisher,
 				Boolean active, String content, String authorName, String email) {
 			super();
 			this.id = id;
