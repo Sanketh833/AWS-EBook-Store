@@ -53,7 +53,7 @@ public class BookServiceImpl implements IBookService {
 	public Books updateBook(Books book, Integer id) {
 		// TODO Auto-generated method stub
 		Books existingBook = bookRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee", "id", id));
+				.orElseThrow(() -> new ResourceNotFoundException("Book", "id", id));
 
 		existingBook.setAuthorName(book.getAuthorName());
 		existingBook.setActive(book.getActive());

@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
   })
   }
   addToCart(id:number){
-    this.router.navigate(['searchResults'])
+    this.router.navigate(['searchResults', id])
   }
 
 

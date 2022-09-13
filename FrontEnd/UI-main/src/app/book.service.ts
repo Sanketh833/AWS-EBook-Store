@@ -25,17 +25,6 @@ export class BookService {
     return this.http.get("http://localhost:8083/searchbooks/" + category + '/' + authorName + '/' + price + '/' + publisher);
   }
 
-  //   getbyparams(): Observable<any>{
-  // let params1= new HttpParams().set('category',this.category);
-  // let params2= new HttpParams().set('authorName','mars');
-  // let params3= new HttpParams().set('price','1390');
-  // // let params2= new HttpParams().set('AuthorName','mystery');
-  // return this.http.get("http://localhost:8083/searchbooks",{params:params1})
-  //   }
-
-
-
-
   createBook(books: {
     title: string;
     category: string;
@@ -53,7 +42,7 @@ export class BookService {
 
   }
 
-  buyBook(readers: {
+  buyBook(id:number ,readers: {
     readerEmail: string;
     readerName: string;
     cardNumber: number;
@@ -61,7 +50,7 @@ export class BookService {
     id: number;
   }) {
 
-    return this.http.post("http://localhost:8085/buy/", readers)
+    return this.http.post(`http://localhost:8085/buy/${id}`, readers)
   }
 
   authorlogin(author: {
@@ -88,12 +77,8 @@ export class BookService {
     active: boolean;
     content: string;
 
-
-
   }) {
     return this.http.put(`http://localhost:8083/update/${id}`, books)
-
-
   }
 
   deleteBook(id: number) {
@@ -105,15 +90,10 @@ export class BookService {
     authorName: string;
     password: string;
 
-
-
   }) {
     return this.http.post(`http://localhost:8088/author`, authors)
 
   }
-
-
-
 
   constructor(public http: HttpClient) { }
 }

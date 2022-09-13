@@ -15,7 +15,7 @@ import { UpdateBookComponent } from 'src/app/Components/update-book/update-book.
 const routes: Routes = [{path:'book',component:BooksComponent},
 {path:'about',component:AboutUsComponent},
 {path:'',component:HomeComponent},
-{path:'searchResults',component:SearchResultsComponent},
+{path:'searchResults/:id',component:SearchResultsComponent},
 {path:'login',component:LoginComponent},
 {path:'authorBooks',component:AuthorBooksComponent},
 {path:'updateBook/:id',component:UpdateBookComponent},

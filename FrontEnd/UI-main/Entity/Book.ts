@@ -3,7 +3,7 @@ export default class Book{
     title:string="";
     category:string="";
     image:string="";
-    price:number=0;
+    price:number;
     publisher:string="";
     active:boolean=true;
     content:string="";

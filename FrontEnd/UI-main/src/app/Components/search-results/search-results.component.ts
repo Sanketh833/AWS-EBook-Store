@@ -48,11 +48,12 @@ export class SearchResultsComponent implements OnInit {
 
 }
 buyBook(){
-  const observable= this.bookService.buyBook(this.reader);    
+  const observable= this.bookService.buyBook(this.id ,this.reader);    
   observable.subscribe(
     (response:any)=>{
       console.log(response);
       alert("Payment Completed")
+     
     },
     function(error){
       console.log(error);

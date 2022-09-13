@@ -12,7 +12,7 @@ public class ReaderServiceImpl implements IReaderService {
 	IReaderRepository ireaderRepository;
 
 	@Override
-	public ReaderEntity buyBook(ReaderEntity readerEntity) {
+	public ReaderEntity buyBook(ReaderEntity readerEntity, Integer id) {
 		ReaderEntity savedReaderEntity = ireaderRepository.save(readerEntity);
 		return savedReaderEntity;
 	}

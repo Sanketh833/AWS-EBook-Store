@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import com.reader.dto.Books;
 import com.reader.entity.ReaderEntity;
 import com.reader.service.IReaderService;
 
+@CrossOrigin
 @RestController
 public class ReaderController {
 
@@ -48,10 +50,10 @@ public class ReaderController {
 //		return books;
 //	}
 
-	@PostMapping("/buy")
-	public ReaderEntity buyBook(@RequestBody ReaderEntity readerEntity) {
+	@PostMapping("/buy/{id}")
+	public ReaderEntity buyBook(@RequestBody ReaderEntity readerEntity , @PathVariable("id") Integer id) {
 
-		ReaderEntity buyBookforReader = iReaderService.buyBook(readerEntity);
+		ReaderEntity buyBookforReader = iReaderService.buyBook(readerEntity, id);
 		return buyBookforReader;
 	}
 
