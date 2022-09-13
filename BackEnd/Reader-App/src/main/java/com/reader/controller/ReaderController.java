@@ -49,10 +49,10 @@ public class ReaderController {
 //	}
 
 	@PostMapping("/buy")
-	public String buyBook(@RequestBody ReaderEntity readerEntity) {
+	public ReaderEntity buyBook(@RequestBody ReaderEntity readerEntity) {
 
-		String email = iReaderService.buyBook(readerEntity);
-		return email;
+		ReaderEntity buyBookforReader = iReaderService.buyBook(readerEntity);
+		return buyBookforReader;
 	}
 
 	@GetMapping("/getspecificbook/{id}")

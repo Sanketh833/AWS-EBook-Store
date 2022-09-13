@@ -46,7 +46,7 @@ public class BookController {
 	}
 
 	@GetMapping("/getbookbyemail/{email}")
-	public List<Books> getBookbyaid(@PathVariable String email) {
+	public List<Books> getBookbyId(@PathVariable String email) {
 		List<Books> book = bookService.getBookbyemail(email);
 		return book;
 	}

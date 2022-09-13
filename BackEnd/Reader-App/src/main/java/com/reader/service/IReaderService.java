@@ -9,6 +9,6 @@ import com.reader.entity.ReaderEntity;
 
 public interface IReaderService {
 
-	public String buyBook(ReaderEntity readerEntity);
+	public ReaderEntity buyBook(ReaderEntity readerEntity);
 
 }

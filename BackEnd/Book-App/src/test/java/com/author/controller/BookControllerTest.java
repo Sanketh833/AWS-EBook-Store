@@ -10,6 +10,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.ResponseEntity;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.mockitoSession;
@@ -21,6 +23,7 @@ import java.util.Optional;
 import com.book.controller.BookController;
 import com.book.entity.Books;
 import com.book.service.IBookService;
+import com.reader.enumerated.Category;
 
 @ExtendWith(MockitoExtension.class)
 public class BookControllerTest {
@@ -41,7 +44,7 @@ public class BookControllerTest {
 		books.setTitle("The KingKong");
 		books.setAuthorName("vijay");
 		books.setContent("Suspense thriller");
-		books.setCategory("Suspense");
+		books.setCategory(Category.THRILLER);
 		books.setEmail("vijay@gmail.com");
 		books.setImage("URL");
 		books.setPublisher("Vr printers");
@@ -69,7 +72,7 @@ public class BookControllerTest {
 		Books books = new Books();	
 		books.setEmail("test@gmail.com");
 		when(iBookService.getBookbyemail(books.getEmail())).thenReturn(new ArrayList<Books>());
-		assertEquals(books, bookController.getBookbyaid(books.getEmail()).size());
+		assertEquals(books, bookController.getBookbyId(books.getEmail()).size());
 		
 	}
 	
@@ -88,11 +91,23 @@ public class BookControllerTest {
 //		
 //	}
 	
-//	@Test
-//	void testDeletebooks() {
-//		when(iBookService.deleteallBooks()).thenRe
-//		assertEquals(0, bookController.getAllBooks().size());
-//
-//		
-//	}
+	
+	@Test
+	void testUpdateBook() {
+		Books books = new Books();
+		when(iBookService.updateBook(books, 1)).thenReturn(books);
+		assertEquals(, bookController.updateBook(1, books));
+		
+	}
+	
+	
+	
+	
+	@Test
+	void testDeletebooks() {
+		Books books = new Books();
+	when(iBookService.deleteallBooks()).thenReturn(null); 
+		assertEquals(0, bookController.deleteBooks());
+	
+	}
 }
