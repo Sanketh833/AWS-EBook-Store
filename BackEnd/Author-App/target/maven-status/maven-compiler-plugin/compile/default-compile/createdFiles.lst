@@ -1,0 +1,9 @@
+com\author\service\AutorServiceImpl.class
+com\author\service\IAuthorRepository.class
+com\author\service\IAuthorService.class
+com\author\dto\AuthorDTO.class
+com\author\entity\Books.class
+com\author\exception\ResourceNotFoundException.class
+com\author\AuthorMsApplication.class
+com\author\entity\Author.class
+com\author\controller\AuthorController.class

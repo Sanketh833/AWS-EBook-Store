@@ -10,7 +10,6 @@ import { BookService } from 'src/app/book.service';
 })
 export class ReaderBookComponent implements OnInit {
   id:number;
-
   book:Book = new Book();
   books:Book[]=[];
   constructor(public bookService:BookService,

@@ -33,20 +33,6 @@ export class SearchResultsComponent implements OnInit {
     this.reader = new Reader();
     this.id=this.activatedroute.snapshot.params['id'];
     
-    
-  //   const promise=this.bookService.getBooks();
-  //   promise.subscribe((response)=>{
-  //     console.log(response);
-  //     this.books=response as Book[];
-  // })
-
-//  searchbyparams(){
-//   const promise=this.bookService.getbyparams();
-//   promise.subscribe((response)=>{
-//         console.log(response);
-//         this.books=response as Book[];
-//     })}
-
 }
 buyBook(){
   const observable= this.bookService.buyBook(this.id,this.reader);    

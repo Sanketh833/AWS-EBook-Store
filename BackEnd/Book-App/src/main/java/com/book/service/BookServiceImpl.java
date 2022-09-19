@@ -15,13 +15,12 @@ import com.book.exception.ResourceNotFoundException;
 @Service
 public class BookServiceImpl implements IBookService {
 	@Autowired
-	IBookRepository bookRepository;
+	BookRepository bookRepository;
 
 	@Override
 	public Books saveBook(Books books) {
 		Books savedAuthor = bookRepository.save(books);
-		return savedAuthor;
-		// TODO Auto-generated method stub
+		return savedAuthor; 
 
 	}
 
@@ -32,8 +31,7 @@ public class BookServiceImpl implements IBookService {
 	}
 
 	@Override
-	public Optional<Books> getBook(Integer id) {
-		// TODO Auto-generated method stub
+	public Optional<Books> getBook(Integer id) { 
 		return bookRepository.findById(id);
 	}
 
@@ -50,8 +48,7 @@ public class BookServiceImpl implements IBookService {
 	}
 
 	@Override
-	public Books updateBook(Books book, Integer id) {
-		// TODO Auto-generated method stub
+	public Books updateBook(Books book, Integer id) { 
 		Books existingBook = bookRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Book", "id", id));
 
@@ -62,16 +59,13 @@ public class BookServiceImpl implements IBookService {
 		existingBook.setImage(book.getImage());
 		existingBook.setPrice(book.getPrice());
 		existingBook.setPublisher(book.getPublisher());
-
-		// the details are updated and then saving the updated value
+ 
 		bookRepository.save(existingBook);
 		return existingBook;
 	}
 
 	@Override
-	public List<Books> getBookbyemail(String email) {
-		// TODO Auto-generated method stub
-
+	public List<Books> getBookbyemail(String email) { 
 		return bookRepository.findByemail(email);
 	}
 
@@ -84,15 +78,5 @@ public class BookServiceImpl implements IBookService {
 						|| n.getAuthorName().equalsIgnoreCase(authorname) || n.getPrice().equals(price))
 				.collect(Collectors.toList());
 	}
-
-//	@Override
-//	public List<Books> searchbooks(String category, String authorName, long price) {
-//		List<Books> booklist=	bookRepository.findAll();
-//		
-//		return booklist.stream().filter(n->n.getCategory().equalsIgnoreCase(category) ||
-//				n.getAuthorName().equalsIgnoreCase(authorName) || 
-//				n.getPrice().equals(price))
-//				.collect(Collectors.toList());
-//	}
 
 }

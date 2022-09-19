@@ -10,7 +10,7 @@
 //@Configuration
 //@EnableWebSecurity
 //@SuppressWarnings("deprecation")
-//public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+//public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 //	
 //	@Autowired
 //	AutorServiceImpl userDetailsService;

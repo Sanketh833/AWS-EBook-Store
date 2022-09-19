@@ -25,15 +25,18 @@
 <br>
 <div class="input-group">
     <span class="input-group-text">Category</span>
-    <input type="text"  placeholder="eg: Biography, Adventure, Fiction etc" [(ngModel)]=book.category aria-label="First name"
+    <input required type="category" id="typecategoryX" name="category" #category="ngModel"  type="text"  placeholder="eg: FICTION, SUSPENSE, THRILLER etc" [(ngModel)]=book.category aria-label="First name"
         class="form-control">
+    <div class="alert alert-danger" *ngIf=" category.touched && !category.valid">Mention the Category </div>
 
 </div>
 <br>
 <div class="input-group">
     <span class="input-group-text">Image</span>
-    <input type="text"  placeholder="please insert url" [(ngModel)]=book.image aria-label="First name"
+    <input   required type="image" id="typeimageX" name="image" #image="ngModel" type="text"  placeholder="please insert image url" [(ngModel)]=book.image aria-label="First name"
         class="form-control">
+        <div class="alert alert-danger" *ngIf=" image.touched && !image.valid">Mention the Category </div>
+
 
 </div>
 <br>

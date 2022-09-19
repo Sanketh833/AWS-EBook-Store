@@ -9,12 +9,11 @@ import com.reader.entity.ReaderEntity;
 public class ReaderServiceImpl implements IReaderService {
 
 	@Autowired
-	IReaderRepository ireaderRepository;
+	ReaderRepository readerRepository;
 
 	@Override
 	public ReaderEntity buyBook(ReaderEntity readerEntity, Integer id) {
-		ReaderEntity savedReaderEntity = ireaderRepository.save(readerEntity);
-		return savedReaderEntity;
+		return readerRepository.save(readerEntity);
 	}
 
 }

@@ -13,10 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.author.dto.AuthorDTO;
 import com.author.entity.Author;
-import com.author.service.AutorServiceImpl;
-import com.author.service.IAuthorRepository;
-import com.author.service.IAuthorService;
-
+import com.author.service.AutorService;
+import com.author.service.IAuthorRepository; 
 @ExtendWith(MockitoExtension.class)
 public class AuthorServiceTest  {
 
@@ -24,7 +22,7 @@ public class AuthorServiceTest  {
 	IAuthorRepository iauthorRepository;
 	
 	@InjectMocks
-	AutorServiceImpl authorserviceimpl;
+	AutorService authorservice;
 	
 	@Test
 	void testSaveauthor() {
@@ -32,7 +30,7 @@ public class AuthorServiceTest  {
 		Author author = new Author();
 		author.setEmail("sanketh@gmail.com");
 		when(iauthorRepository.save(author)).thenReturn(author);   
-		assertEquals(author, authorserviceimpl.saveAuthor(author));
+		assertEquals(author, authorservice.saveAuthor(author));
 	}
 	
 	
@@ -51,7 +49,7 @@ public class AuthorServiceTest  {
 		Author author = new Author();  
 		String email = "test@gmail.com";
 		when(iauthorRepository.findById(email)).thenReturn(Optional.of(author));
-		assertEquals(author, authorserviceimpl.getbook(email));
+		assertEquals(author, authorservice.getbook(email));
 		
 		
 	}

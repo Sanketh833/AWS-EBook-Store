@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.book.controller.BookControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.228 s <<< FAILURE! - in com.book.controller.BookControllerTest
+testUpdateBook  Time elapsed: 0.029 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <<200 OK OK,Books(id=null, title=null, category=null, image=null, price=null, publisher=null, active=null, content=null, authorName=null, email=null),[]>>
+	at com.book.controller.BookControllerTest.testUpdateBook(BookControllerTest.java:99)
+
+testGetbookbyid  Time elapsed: 0.005 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Books(id=null, title=null, category=null, image=null, price=null, publisher=null, active=null, content=null, authorName=null, email=test@gmail.com)> but was: <0>
+	at com.book.controller.BookControllerTest.testGetbookbyid(BookControllerTest.java:75)
+
+testGetbook  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Books(id=null, title=null, category=null, image=null, price=null, publisher=null, active=null, content=null, authorName=null, email=null)> but was: <Optional[Books(id=null, title=null, category=null, image=null, price=null, publisher=null, active=null, content=null, authorName=null, email=null)]>
+	at com.book.controller.BookControllerTest.testGetbook(BookControllerTest.java:67)
+
