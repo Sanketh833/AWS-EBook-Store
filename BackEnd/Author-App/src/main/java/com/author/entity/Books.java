@@ -1,5 +1,7 @@
 package com.author.entity;
 
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -18,9 +20,9 @@ public class Books {
 
 		private Integer id;
 		private String title;
-		private String category; //enum
+		private String category; 
 		private String image;
-		private long price; //big decimal
+		private BigDecimal price; //big decimal
 		private String publisher;
 		private Boolean active;
 		private String content;

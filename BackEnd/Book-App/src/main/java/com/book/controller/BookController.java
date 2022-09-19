@@ -51,17 +51,11 @@ public class BookController {
 		return book;
 	}
 
-//	@GetMapping("/searchbooks")
-//	public List<Books> searchbooks(@RequestParam(name = "category", required = false) String category,
-//			@RequestParam(name = "authorName", required = false) String authorName,
-//			@RequestParam(name = "price", required = false) Long price) {
-//		return bookService.searchbooks(category, authorName, price);
-//
-//	}
+
 
 	@GetMapping("/searchbooks/{category}/{authorname}/{price}/{publisher}")
 
-	public List<Books> searchBooks2(@PathVariable String category, @PathVariable String authorname,
+	public List<Books> searchBooks(@PathVariable String category, @PathVariable String authorname,
 			@PathVariable BigDecimal price, @PathVariable String publisher) {
 
 		return bookService.searchbooks(category, authorname, price, publisher);
@@ -69,8 +63,7 @@ public class BookController {
 	}
 
 	@DeleteMapping("/book/{id}")
-	public ResponseEntity<Books> deleteBook(@PathVariable Integer id) {
-		System.out.println(id);
+	public ResponseEntity<Books> deleteBook(@PathVariable Integer id) { 
 		ResponseEntity<Books> responseEntity = new ResponseEntity<>(HttpStatus.OK);
 		try {
 			bookService.deleteBook(id);

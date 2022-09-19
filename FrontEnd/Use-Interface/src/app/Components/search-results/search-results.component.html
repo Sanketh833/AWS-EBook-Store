@@ -11,31 +11,38 @@
 
 
                             <div class="form-outline mb-4">
-                                <input type="text" id="form3Example1cg"
+                                <input required type="email" id="typeEmailX" name="email" #email="ngModel" type="text" id="form3Example1cg"
                                     placeholder="Please Enter Email" [(ngModel)]=reader.readerEmail
                                     class="form-control form-control-lg" />
+                                    <div class="alert alert-danger" *ngIf=" email.touched && !email.valid">Email is  Compulsory </div>
                                 <label class="form-label" for="form3Example1cg">Email</label>
                             </div>
 
                             <div class="form-outline mb-4">
-                                <input type="Author Name" id="form3Example3cg" placeholder="Please Enter Your Name" [(ngModel)]=reader.readerName
+                                <input required type="name" id="typeNameX" name="name" #authorName="ngModel" type="Author Name" id="form3Example3cg" placeholder="Please Enter Your Name" [(ngModel)]=reader.readerName
                                     class="form-control form-control-lg" />
+                                    <div class="alert alert-danger" *ngIf=" authorName.touched && !authorName.valid">Name is  Compulsory </div>
                                 <label class="form-label" for="form3Example3cg">Name</label>
                             </div>
+
                             <div class="form-outline mb-4">
-                                <input type="Book Id" id="form3Example3cg" placeholder="Please Enter Book Id" [(ngModel)]=reader.id
+                                <input required type="id" id="typeIdX" name="id" #id="ngModel" type="Book Id" id="form3Example3cg" placeholder="Please Enter Book Id" [(ngModel)]=reader.id
                                     class="form-control form-control-lg" />
+                                    <div class="alert alert-danger" *ngIf=" id.touched && !id.valid">Book ID is  Compulsory </div>
                                 <label class="form-label" for="form3Example3cg">Book Id</label>
                             </div>
+
                             <div class="form-outline mb-4">
-                                <input type="Price" id="form3Example3cg" placeholder="Please Enter Your Card Number" [(ngModel)]=reader.cardNumber
+                                <input required type="cardNumber" id="typeCardNumberX" name="cardNumber" #cardNumber="ngModel" type="Book Id" type="Price" id="form3Example3cg" placeholder="Please Enter Your Card Number" [(ngModel)]=reader.cardNumber
                                     class="form-control form-control-lg" />
-                                   
+                                    <div class="alert alert-danger" *ngIf=" cardNumber.touched && !cardNumber.valid">Enter your Card Number </div>
                                 <label  class="form-label" for="form3Example3cg">Card Number</label>
                             </div>
+
                             <div class="form-outline mb-4">
-                                <input type="Publisher" id="form3Example3cg" placeholder="Please Enter Your 3 digit CVV" [(ngModel)]=reader.cvv
+                                <input required type="cvv" id="typeCVVX" name="cvv" #cvv="ngModel" type="Publisher" id="form3Example3cg" placeholder="Please Enter Your 3 digit CVV" [(ngModel)]=reader.cvv
                                     class="form-control form-control-lg" />
+                                    <div class="alert alert-danger" *ngIf=" cvv.touched && !cvv.valid">Enter your three digit CVV</div>
                                 <label class="form-label" for="form3Example3cg">CVV</label>
                             </div>
                             <!-- <div class="form-outline mb-4">
