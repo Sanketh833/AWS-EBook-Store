@@ -3,9 +3,9 @@ export default class Book{
     title:string="";
     category:string="";
     image:string="";
-    price:number=0;
+    price:number
     publisher:string="";
-    active:boolean=true;
+    active:boolean;
     content:string="";
     email:string="";
     authorName:string="";

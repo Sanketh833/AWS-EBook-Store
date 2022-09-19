@@ -33,38 +33,43 @@
 <br>
 <div class="input-group">
     <span class="input-group-text">Image</span>
-    <input   required type="image" id="typeimageX" name="image" #image="ngModel" type="text"  placeholder="please insert image url" [(ngModel)]=book.image aria-label="First name"
+    <input   required type="image" id="typeImageX" name="image" #image="ngModel" type="text"  placeholder="please insert image url" [(ngModel)]=book.image aria-label="First name"
         class="form-control">
-        <div class="alert alert-danger" *ngIf=" image.touched && !image.valid">Mention the Category </div>
+        <div class="alert alert-danger" *ngIf=" image.touched && !image.valid">Specify the Image URL </div>
 
 
 </div>
 <br>
 <div class="input-group">
-    <span class="input-group-text">Price</span>
-    <input type="text"   aria-label="Price" [(ngModel)]=book.price
+    <span   class="input-group-text">Price</span>
+    <input required type="price" id="typePriceX" name="price" #price="ngModel" type="text"   aria-label="Price" [(ngModel)]=book.price
         class="form-control">
-
+        <div class="alert alert-danger" *ngIf=" price.touched && !price.valid">Specify the Price </div>
 </div>
+
 <br>
 <div class="input-group">
     <span class="input-group-text">Publisher</span>
-    <input type="text"   aria-label="Publisher name" [(ngModel)]=book.publisher
+    <input required type="publisher" id="typePublisherX" name="publisher" #publisher="ngModel" type="text" type="text"   aria-label="Publisher name" [(ngModel)]=book.publisher
         class="form-control">
+        <div class="alert alert-danger" *ngIf=" publisher.touched && !publisher.valid">Mention Publishers name </div>
 
 </div>
 <br>
 <div class="input-group">
     <span class="input-group-text">Active</span>
-    <input type="text"   aria-label="Active" [(ngModel)]=book.active
+    <input required type="active" id="typeActiveX" name="active" #active="ngModel" type="text"   aria-label="Active" [(ngModel)]=book.active
         class="form-control">
-
+        <div class="alert alert-danger" *ngIf=" active.touched && !active.valid">True or False </div>
 </div>
+
 <br>
 <div class="input-group">
     <span class="input-group-text">Content</span>
-    <input type="text"   aria-label="Content" [(ngModel)]=book.content
+    <input required type="content" id="typeContentX" name="content" #content="ngModel" type="text"   aria-label="Content" [(ngModel)]=book.content
         class="form-control">
+        <div class="alert alert-danger" *ngIf=" content.touched && !content.valid">True or FalseWrite the Contents </div>
+
 
 </div>
 
