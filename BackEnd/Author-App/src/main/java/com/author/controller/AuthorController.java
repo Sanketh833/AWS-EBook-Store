@@ -38,9 +38,7 @@ public class AuthorController {
 		return authorService.login(authorDTO);
 
 	}
-	
-	
-// searching all thebooks of author
+	 
 	
 	@GetMapping("/{email}")
 	public AuthorDTO getbook(@PathVariable("email") String email) {

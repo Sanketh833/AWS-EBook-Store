@@ -22,11 +22,6 @@ public class AuthorMsApplication {
 		return new RestTemplate();
 	}
 	
-	
-//	@Bean
-//	public PasswordEncoder passwordEncoder () {
-//		return NoOpPasswordEncoder.getInstance();
-//		
-//	}
+ 
 
 }

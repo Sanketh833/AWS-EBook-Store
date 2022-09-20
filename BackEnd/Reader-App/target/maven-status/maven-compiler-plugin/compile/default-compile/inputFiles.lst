@@ -2,6 +2,6 @@ D:\DigitalBook-CaseStudy\BackEnd\Reader-App\src\main\java\com\reader\service\Rea
 D:\DigitalBook-CaseStudy\BackEnd\Reader-App\src\main\java\com\reader\entity\ReaderEntity.java
 D:\DigitalBook-CaseStudy\BackEnd\Reader-App\src\main\java\com\reader\ReaderMsApplication.java
 D:\DigitalBook-CaseStudy\BackEnd\Reader-App\src\main\java\com\reader\controller\ReaderController.java
-D:\DigitalBook-CaseStudy\BackEnd\Reader-App\src\main\java\com\reader\service\IReaderRepository.java
+D:\DigitalBook-CaseStudy\BackEnd\Reader-App\src\main\java\com\reader\service\ReaderRepository.java
 D:\DigitalBook-CaseStudy\BackEnd\Reader-App\src\main\java\com\reader\dto\Books.java
 D:\DigitalBook-CaseStudy\BackEnd\Reader-App\src\main\java\com\reader\service\IReaderService.java
