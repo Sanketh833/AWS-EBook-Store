@@ -1,13 +1,16 @@
-<h3>Register a Book</h3>
+
+<div class="color" >
+
+<h3 style="font-style: italic; color: brown;" >Create a new Book</h3>
 <div>
     
-<a class="nav-link" style="text-align: end;"  routerLink="/authorBooks" href="#">All My Books</a>
-<a class="nav-link" style="text-align: end;" routerLink="" href="#">Log Out</a>
+<a class="nav-link" style="text-align: end; font-weight: bold; color: blue;"  routerLink="/authorBooks" href="#">Authors Books</a>
+<a class="nav-link" style="text-align: end; font-weight: bold; color: red;" routerLink="" href="#">Log Out</a>
 
 </div>
 
 <div class="input-group">
-    <span class="input-group-text">Title</span>
+    <span class="input-group-text">Book Title</span>
     <input required type="title" id="typeTitleX" name="title" #title="ngModel" type="text"  placeholder="Title of the book" [(ngModel)]=book.title aria-label="First name"
         class="form-control">
         <div class="alert alert-danger" *ngIf=" title.touched && !title.valid">Title is Required</div>
@@ -82,6 +85,8 @@
 
 
 <br>
-<button class="btn btn-primary" (click)="save()">Save</button>
+<button class="btn btn-info" (click)="save()">Save</button>
+
+</div>
 
 

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default class Author {\n  constructor() {\n    this.email = \"\";\n    this.authorName = \"\";\n    this.password = \"\";\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

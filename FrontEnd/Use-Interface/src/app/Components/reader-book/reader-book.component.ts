@@ -25,7 +25,7 @@ export class ReaderBookComponent implements OnInit {
     const promise=this.bookService.getReadersBook(id); 
     promise.subscribe((response)=>{
       console.log(response);
-      this.books=response as Book[];
+      this.book=response as Book;
     })
 
   }

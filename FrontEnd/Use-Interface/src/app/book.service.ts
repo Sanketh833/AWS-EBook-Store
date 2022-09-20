@@ -4,10 +4,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 
 
-const URL = "http://localhost:8083/book"
-const URLGET = "http://localhost:8083/allBooks"
+const URL = "http://34.218.246.21:8083/book"
+const URLGET = "https://dcf41pkqwg.execute-api.us-west-2.amazonaws.com/presentation/book-store"
 
-const URLLOGIN = "http://localhost:8088/login"
+const URLLOGIN = "http://34.218.246.21:8088/login"
 
 
 @Injectable({
@@ -22,7 +22,7 @@ export class BookService {
   }
 
   searchBooks(category: any, authorName: any, price: any, publisher: any) {
-    return this.http.get("	http://localhost:8083/searchbooks/" + category + '/' + authorName + '/' + price + '/' + publisher);
+    return this.http.get("https://dcf41pkqwg.execute-api.us-west-2.amazonaws.com/presentation/%7Bproxy+%7D" + category + '/' + authorName + '/' + price + '/' + publisher);
   }
 
 
@@ -52,7 +52,7 @@ export class BookService {
     id: number;
   }) {
 
-    return this.http.post(`http://localhost:8085/buy/${id}`, readers)
+    return this.http.post(`http://34.218.246.21:8085/buy/${id}`, readers)
   }
 
   authorlogin(author: {
@@ -66,11 +66,11 @@ export class BookService {
   }
 
   retrieveAllByEmail(email: string) {
-    return this.http.get(`http://localhost:8083/getbookbyemail/${email}`)
+    return this.http.get(`http://34.218.246.21:8083/getbookbyemail/${email}`)
 
   }
   getReadersBook(id: number) {
-    return this.http.get(`http://localhost:8085/getspecificbook/${id}`)
+    return this.http.get(`http://34.218.246.21:8085/getspecificbook/${id}`)
 
   }
 
@@ -88,13 +88,13 @@ export class BookService {
 
 
   }) {
-    return this.http.put(`http://localhost:8083/update/${id}`, books)
+    return this.http.put(`http://34.218.246.21:8083/update/${id}`, books)
 
 
   }
 
   deleteBook(id: number) {
-    return this.http.delete(`http://localhost:8083/book/${id}`);
+    return this.http.delete(`http://34.218.246.21:8083/book/${id}`);
   }
 
   createAuthor(authors: {
@@ -105,7 +105,7 @@ export class BookService {
 
 
   }) {
-    return this.http.post(`http://localhost:8088/author`, authors)
+    return this.http.post(`https://dcf41pkqwg.execute-api.us-west-2.amazonaws.com/presentation/author`, authors)
 
   }
 

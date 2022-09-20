@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default class Book {\n  constructor() {\n    this.title = \"\";\n    this.category = \"\";\n    this.image = \"\";\n    this.publisher = \"\";\n    this.content = \"\";\n    this.email = \"\";\n    this.authorName = \"\";\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

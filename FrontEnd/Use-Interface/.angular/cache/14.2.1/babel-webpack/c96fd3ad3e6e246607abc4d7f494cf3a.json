@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default class Reader {\n  constructor() {\n    this.readerEmail = \"\";\n    this.readerName = \"\";\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
